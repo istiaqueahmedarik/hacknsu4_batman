@@ -1,16 +1,6 @@
 /* Creating an instance of the express framework. */
 const app = require('express')();
 var axios = require("axios").default;;
-async function getDataHour(device_id,date) {    
-    const dt = await fetch(`https://firestore.googleapis.com/v1/projects/energysaver-6207e/databases/(default)/documents/istiaque/${device_id}/${date}/usage_hour/`);
-    const j_data = await dt.json();
-    /* Filtering the data to only include the Chirps_15s and Temp_C columns. */
-    const cleaned = j_data.map(i => ({
-      hour: i.mapValue.fields.Hour,
-      Power: i.mapValue.fields.Power,
-    }))
-    return cleaned;
-  }
 
 
 /* This is a route handler. It is a function that is called when a user visits the root route of the
