@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #301924;
+  background-color: #504f4f;
 }
 
 a {
@@ -19,11 +19,17 @@ a {
 .primary {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
+  justify-content: space-around;
+}
+.name {
+  padding: 10px;
 }
 .MuiButtonBase-root {
   color: rgb(234, 223, 67) !important;
+  border-color: white !important;
+  border-radius: 999px !important;
 }
 @media (prefers-color-scheme: dark) {
   html {
@@ -31,6 +37,6 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background-color: #504f4f;
   }
 }
