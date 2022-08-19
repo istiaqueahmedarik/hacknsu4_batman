@@ -17,30 +17,7 @@ function Main({user}) {
         Tooltip,
         Legend
       );
-      const options = {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Chart.js Line Chart',
-          },
-        },
-      };
-      const data = {
-        x,
-        datasets: [
-          {
-            label: 'Dataset 1',
-            data: y,
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },
-          
-        ],
-      };
+      
       
      
       
@@ -67,7 +44,30 @@ function Main({user}) {
     console.log(error);
   })
 
-
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Line Chart',
+      },
+    },
+  };
+  const data = {
+    x,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: y,
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      
+    ],
+  };
     return (
         <>
         
