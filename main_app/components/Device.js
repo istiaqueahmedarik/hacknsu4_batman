@@ -1,23 +1,29 @@
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { collection, getFirestore } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import Image from 'next/image';
 import React, { useState } from 'react';
+import Cookies from 'universal-cookie';
 import app from '../firebase';
 
+function Device({user}) {
+const cookies = new Cookies();
 
-function Login({user}) {
     const db = getFirestore(app);
-
+    
     const [device_id,setDeviceid] = useState('')
     const device_update = async ()=>{
-        
-        const myCollRef = collection(db, user/device_id/"daily_usage"/"data");
-        const myDocRef = doc(myCollRef);
-        await setDoc(myDocRef, {
-            '2022-8-14':["a","b"]
-        });
+
+const Ref = doc(db, user,device_id);
+    
+cookies.set('device', device_id, { path: '/' });
+await setDoc(Ref, {
+     
+});
+
+    setDeviceid('')
+
     }
     return (
         <>
@@ -35,7 +41,7 @@ function Login({user}) {
       <TextField id="filled-basic" value={device_id} label="Device-id:" variant="filled" color="success" onChange={(e)=>setDeviceid(e.target.value)} />
       
     </Box>
-    <Button onClick={()=>device_update()}> Update</Button>
+    <Button onClick={device_update}> Update</Button>
             </div>
   
 
@@ -43,4 +49,4 @@ function Login({user}) {
     )
 }
 
-export default Login
+export default Device
